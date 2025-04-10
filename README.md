@@ -23,8 +23,8 @@ Teaching Assistant (TA): Xiaochuan Jin, M.S., Institute of Automation CAS, jinxi
 
 
 # 📜 Content
-- AI-Generated Text Detection
-- Evasion Strategies
+- AI_Generated_Text Detection
+- AI_Text Generation
 
 
 # 🥇 LeaderBoard
