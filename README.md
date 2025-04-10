@@ -28,7 +28,7 @@ Teaching Assistant (TA): Xiaochuan Jin, M.S., Institute of Automation CAS, jinxi
 
 
 # 🥇 LeaderBoard
-## Deepfake Detection
+## AI_Generated_Text Detection
 
 ### Week 8
 |Team | AUC | Time |
@@ -36,7 +36,7 @@ Teaching Assistant (TA): Xiaochuan Jin, M.S., Institute of Automation CAS, jinxi
 |Baseline| - | - |
 
 
-## Deepfake Generation
+## AI_Text Generation
 ### Week 8
 |Team | SSIM | Noise | ID_score | AntiDet_score | Overall_score |
 |:-----:|:----:|:------:|:----:|:------:|:----:|
