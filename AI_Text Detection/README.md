@@ -18,7 +18,7 @@ pip install -r requirements.txt
 ```
 
 3. Download the dataset \
-Please acquire the download link from our Wechat. \
+Please acquire the download link from our Wechat. 
 - **Training Dataset**: You may use any dataset for training  **EXCEPT M4 AND HC3**. \
   Using M4 and HC3 for training is strictly **PROHIBITED**. \
   You should declare any additional data sources in your final report.
