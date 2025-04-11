@@ -73,7 +73,6 @@ Excel file (`<your-team-name>.xlsx`) with two sheets:
 ## 📈 Evaluation Metrics
 Models are evaluated based on:
 - AUC: Area Under the ROC Curve for the unified dataset (combines both human and machine text detection)
-- Acc.(%): Accuracy percentage on the unified dataset (threshold = 0.5)
 - F1: F1 score measuring the balance between precision and recall
 - Prec: Precision (true positives / (true positives + false positives))
 - Rec: Recall (true positives / (true positives + false negatives))
