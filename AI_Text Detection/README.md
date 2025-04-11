@@ -72,10 +72,16 @@ Excel file (`<your-team-name>.xlsx`) with two sheets:
 
 ## 📈 Evaluation Metrics
 Models are evaluated based on:
-- Machine AUC: AUC score for detecting machine-generated text
-- Human AUC: AUC score for identifying human-written text
-- Combined AUC: Average of Machine AUC and Human AUC (ranking metric)
+- AUC: Area Under the ROC Curve for the unified dataset (combines both human and machine text detection)
+- Acc.(%): Accuracy percentage on the unified dataset (threshold = 0.5)
+- F1: F1 score measuring the balance between precision and recall
+- Prec: Precision (true positives / (true positives + false positives))
+- Rec: Recall (true positives / (true positives + false negatives))
+- FP: False Positives count (texts incorrectly identified as human-written)
+- FN: False Negatives count (texts incorrectly identified as machine-generated)
 - Avg Time (s): Processing time per example
+
+The leaderboard ranks teams by AUC in descending order. Higher values for AUC indicate better performance.
 
 
 ## ⚠️ Caution
