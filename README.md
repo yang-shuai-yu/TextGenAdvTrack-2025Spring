@@ -31,16 +31,16 @@ Teaching Assistant (TA): Xiaochuan Jin, M.S., Institute of Automation CAS, jinxi
 ## AI_Generated_Text Detection
 
 ### Week 8
-|Team | Machine AUC | Human AUC | Combined AUC | Avg Time (s) | Overall_score |
+|Team | Machine_AUC | Human_AUC | Combined_AUC | Avg_Time (s) | Overall_score |
 |:-----:|:----:|:------:|:----:|:------:|:----:|
 |Baseline| - | - | - | - | - | - |
 
 
 ## AI_Text Generation
 ### Week 8
-|Team | AUC | Time | Overall_score
+|Team | Attack_Success_Rate | Avg_Time (s) | Overall_score
 |:-----:|:----:|:------:|:------:|
-|Baseline| - | - |- |
+|Baseline| - | - | - |
 
 
 
