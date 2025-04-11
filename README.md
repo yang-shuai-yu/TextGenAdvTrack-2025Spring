@@ -1,9 +1,9 @@
 # ✨ TextGenAdvTrack - Spring 2025
 Hi, every one! 
 
-This is the official repository for TextGenAdvTrack, the practical session of the cource **AI Security and Adversarial Defense** which is offered to students of UCAS in the spring of 2025.
+This is the official repository for TextGenAdvTrack, practical session of the course **Artificial Intelligence Security, Attacks and Defenses** which is offered to graduate students of UCAS in the spring of 2025.
 
-## Cource infomation
+## course infomation
 
 Name: AI Security and Adversarial Defense (180206081104P3005H)
 
