@@ -1,7 +1,7 @@
 # ✨ TextGenAdvTrack - Spring 2025
 Hi, every one! 
 
-This is the official repository for TextGenAdvTrack, practical session of the course **Artificial Intelligence Security, Attacks and Defenses** which is offered to graduate students of UCAS in the spring of 2025.
+This is the official repository for TextGenAdvTrack, practice session of the course **Artificial Intelligence Security, Attacks and Defenses** which is offered to graduate students of UCAS in the spring of 2025.
 
 ## course infomation
 
@@ -31,9 +31,9 @@ Teaching Assistant (TA): Xiaochuan Jin, M.S., Institute of Automation CAS, jinxi
 ## AI_Generated_Text Detection
 
 ### Week 8
-|Team | AUC | F1 | FN | FP | Prec | Rec | Avg_Time(s) |
-|:-----:|:----:|:----:|:----:|:----:|:----:|:----:|:----:|
-|Baseline| - | - | - | - | - | - | - | - | - |
+|Team | AUC | Avg_Time(s) |
+|:-----:|:----:|:----:|
+|Baseline| - | - |
 
 
 ## AI_Text Evasion
