@@ -1,4 +1,4 @@
-# AI_Text Detection
+# AI_Text Evasion
 
 This is the official code for AI_Text Evasion in TextGenAdvTrack, the practice session of the course Artificial Intelligence Security, Attacks and Defenses (UCAS, spring 2025).
 
@@ -63,5 +63,3 @@ We evaluate the evasion effectiveness by calculating **1-AUC** from there differ
 3. Modified texts should preserve the original meaning to the extent possible.
 4. Submissions not following the required format will be rejected and may affect your evaluation results.
 
-## Acknowledgements
-[LLMDA](https://github.com/ShushantaTUD/LLMDA).
