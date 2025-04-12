@@ -95,5 +95,3 @@ The leaderboard ranks teams by AUC in descending order. Higher values for AUC in
 - `radar`: SJTU-CL/RoBERTa-large-ArguGPT
 - tips: you can load models from 'huggingface' or 'local'.
 
-## Acknowledgements
-- This code is based on [LLMDA](https://github.com/ShushantaTUD/LLMDA).
