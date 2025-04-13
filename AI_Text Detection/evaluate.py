@@ -1,15 +1,12 @@
 import os
 import argparse
-
 import numpy as np
 import pandas as pd
-
-from sklearn.metrics import roc_auc_score
+from sklearn.metrics import roc_auc_score, accuracy_score, f1_score
+from sklearn.metrics import precision_score, recall_score, confusion_matrix
 
 def eval_func(gt_name="ground_truth", path=""):
     """
-    Evaluate LLMDA detector results from multiple methods
-    
     Args:
         gt_name (str): Name of the ground truth file (without extension)
         path (str): Path to directory containing result files
@@ -23,48 +20,57 @@ def eval_func(gt_name="ground_truth", path=""):
     teams = os.listdir(path)
     
     # Filter out ground truth and leaderboard files
-    if gt_name + ".xlsx" in teams:
-        teams.remove(gt_name + ".xlsx")
+    if gt_name + ".csv" in teams:
+        teams.remove(gt_name + ".csv")
     if "LeaderBoard.xlsx" in teams:
         teams.remove("LeaderBoard.xlsx")
 
-    # Read ground truth file
-    gts = pd.read_excel(
-        os.path.join(path, gt_name + ".xlsx"),
-        sheet_name="labels"
+    # Read ground truth labels
+    gts = pd.read_csv(
+        os.path.join(path, gt_name + ".csv")
     )
     
-    # Extract machine and human ground truth
-    human_gt = gts["human_label"].values
-    machine_gt = gts["machine_label"].values
-
     print(f"Found {len(teams)} team/method submissions to evaluate")
     
     for team in teams:
         try:
-            # Read predictions sheet
+            # Read prediction results
             data = pd.read_excel(
                 os.path.join(path, team),
                 sheet_name="predictions",
+                engine="openpyxl"
             )
             
-            # Extract machine and human predictions
-            human_pred = data["human_text_prediction"].values
-            machine_pred = data["machine_text_prediction"].values
+            # Extract prediction values
+            predictions = data["text_prediction"].values
             
-            # Calculate AUC for machine text detection
-            machine_auc = roc_auc_score(machine_gt, machine_pred)
+            # Get ground truth labels
+            ground_truth = gts["label"].values
             
-            # Calculate AUC for human text detection
-            human_auc = roc_auc_score(human_gt, human_pred)
+            # Convert prediction probabilities to binary classification results (threshold 0.5)
+            binary_pred = (predictions >= 0.5).astype(int)
             
-            # Calculate combined AUC
-            combined_auc = (machine_auc + human_auc) / 2
+            # Calculate AUC
+            auc = roc_auc_score(ground_truth, predictions)
+            
+            # Calculate F1 score
+            f1 = f1_score(ground_truth, binary_pred)
+            
+            # Calculate precision and recall
+            precision = precision_score(ground_truth, binary_pred)
+            recall = recall_score(ground_truth, binary_pred)
+            
+            # Calculate confusion matrix
+            tn, fp, fn, tp = confusion_matrix(ground_truth, binary_pred).ravel()
+            
+            # Calculate accuracy
+            accuracy = accuracy_score(ground_truth, binary_pred)  # Convert to percentage
             
             # Read time information
             time_data = pd.read_excel(
                 os.path.join(path, team),
                 sheet_name="time",
+                engine="openpyxl"
             )
             
             # Calculate average processing time per sample
@@ -72,13 +78,17 @@ def eval_func(gt_name="ground_truth", path=""):
             
             # Store results
             ret[team.split(".")[0]] = {
-                "machine_auc": machine_auc,
-                "human_auc": human_auc, 
-                "combined_auc": combined_auc,
+                "auc": auc,
+                "accuracy": accuracy,  # Acc.(%)
+                "f1": f1,             # F1
+                "fn": fn,             # FN
+                "fp": fp,             # FP
+                "precision": precision, # Prec
+                "recall": recall,     # Rec
                 "mean_time": mean_time
             }
             
-            print(f"Evaluated {team}: Machine AUC={machine_auc:.4f}, Human AUC={human_auc:.4f}, Combined={combined_auc:.4f}")
+            print(f"Evaluated {team}: AUC={auc:.4f}, F1={f1:.4f}, Prec={precision:.4f}, Rec={recall:.4f}")
             
         except Exception as e:
             print(f"Error processing {team}: {str(e)}")
@@ -91,12 +101,13 @@ if __name__ == "__main__":
     arg.add_argument(
         "--submit-path",
         type=str,
+        default="/mnt/data/jinxiaochuan/Project/UCAS/LLMDA/results",
         help="Path to directory containing submission files"
     )
     arg.add_argument(
         "--gt-name",
         type=str,
-        default="ground_truth",
+        default="/mnt/data/jinxiaochuan/Project/UCAS/LLMDA/data/test-gt",
         help="Name of ground truth file (without extension)"
     )
     opts = arg.parse_args()
@@ -108,17 +119,30 @@ if __name__ == "__main__":
     
     leaderboard_data = {
         "Team/Method": results.keys(),
-        "Machine AUC": [res["machine_auc"] for res in results.values()],
-        "Human AUC": [res["human_auc"] for res in results.values()],
-        "Combined AUC": [res["combined_auc"] for res in results.values()],
+        "AUC": [res["auc"] for res in results.values()],
+        "Acc": [res["accuracy"] for res in results.values()],
+        "F1": [res["f1"] for res in results.values()],
+        # "FN": [res["fn"] for res in results.values()],
+        # "FP": [res["fp"] for res in results.values()],
+        # "Prec": [res["precision"] for res in results.values()],
+        # "Rec": [res["recall"] for res in results.values()],
         "Avg Time (s)": [res["mean_time"] for res in results.values()]
     }
     
-    # Sort by combined AUC (descending)
+    # Create DataFrame and calculate weighted score
     leaderboard_df = pd.DataFrame(data=leaderboard_data)
-    leaderboard_df = leaderboard_df.sort_values(by="Combined AUC", ascending=False)
+     
+    # Calculate weighted score (AUC weight 0.6, F1 weight 0.25, accuracy weight 0.1)
+    leaderboard_df["Weighted Score"] = (
+        0.6 * leaderboard_df["AUC"] + 
+        0.3 * leaderboard_df["Acc"] + 
+        0.1 * leaderboard_df["F1"] / 100 
+    )
+    
+    # Sort by weighted score in descending order
+    leaderboard_df = leaderboard_df.sort_values(by="Weighted Score", ascending=False)
     
     leaderboard_df.to_excel(writer, index=False)
     writer.close()
     
-    print(f"Leaderboard saved to {os.path.join(opts.submit_path, 'LeaderBoard.xlsx')}")
+    print(f"Extended leaderboard saved to {os.path.join(opts.submit_path, 'LeaderBoard.xlsx')}")
