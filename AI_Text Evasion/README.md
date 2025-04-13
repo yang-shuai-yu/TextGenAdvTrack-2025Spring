@@ -31,7 +31,7 @@ prompt,text,label
 
 2. Prepare your evasion algorithm
 
-Develop strategies to modify AI-generated text(column 'machine_text') to evade detection systems. You may use various techniques including:
+Develop strategies to modify the machine_text which label is `0` in Validation Set: `UCAS_AISAD_TEXT-val` to evade detection systems. You may use various techniques including:
 - Paraphrasing
 - Synonym Replacement
 - Misspelling
