@@ -58,7 +58,9 @@ prompt,text
 "Описание глобального изменения климата","Глобальное изменение климата относится к долгосрочным изменениям климатической системы Земли..."
 ...
 ```
-**Important**: Only modify the machine_text which label is `0`. The prompt and human_text which label is `1` must remain exactly the same as in the original dataset.
+**Important**: 
+- Only modify the machine_text which label is `0`. The prompt and human_text which label is `1` must remain exactly the same as in the original dataset.
+- Please confirme that the csv file encoding method is **utf-8**
 
 ## Naming Convention
 Your submission must be named `YOUR_TEAM_NAME_test_2.csv`, where YOUR_TEAM_NAME is your team's identifier.
