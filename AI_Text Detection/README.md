@@ -99,9 +99,9 @@ Data Volume,Time
 ## 📈 Evaluation Metrics
 Models are evaluated based on:
 - AUC: Area Under the ROC Curve for the unified dataset (combines both human and machine text detection)
-- Acc.(%): Accuracy percentage (correctly classified samples / total samples)
+- ACC: Accuracy percentage (correctly classified samples / total samples)
 - F1: F1 score measuring the balance between precision and recall
-- Final_Score = 0.6 * AUC + 0.3 * Acc.(%)  + 0.1 * F1) / 100
+- Final_Score = 0.6 * AUC + 0.3 * ACC  + 0.1 * F1) / 100
 
 The leaderboard ranks teams by Final_Score in descending order. Higher values indicate better performance.
 
