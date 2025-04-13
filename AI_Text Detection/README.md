@@ -63,7 +63,7 @@ prompt,text,label
 '0' stands for 'machine_text', '1' stands for 'human_text'.
 
 ### Ground Truth Format
-'gt' : \
+'UCAS_AISAD_TEXT-val_label' : \
 CSV file with columns:  `label`:
 ```csv
 label
