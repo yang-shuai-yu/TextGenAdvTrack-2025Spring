@@ -63,7 +63,7 @@ prompt,text
 - Please confirme that the csv file encoding method is **utf-8**
 
 ## Naming Convention
-Your submission must be named `YOUR_TEAM_NAME_test_2.csv`, where YOUR_TEAM_NAME is your team's identifier.
+Your submission must be named `your-team-name_test_2.csv`, where YOUR_TEAM_NAME is your team's identifier.
 
 ## Evaluation Criteria
 We evaluate the evasion effectiveness by calculating **1-AUC** from there different models. The overall rating score is their average. For fairness, we do not provide the evaluation script.
