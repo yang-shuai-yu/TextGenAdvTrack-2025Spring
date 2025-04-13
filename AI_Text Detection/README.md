@@ -28,19 +28,21 @@ Please acquire the download link from our Wechat.
 
 Example data format:
 ```csv
-prompt,human_text,machine_text
-"Explain quantum computing","Quantum computing uses quantum bits or qubits...","Quantum computing is a type of computation that harnesses..."
-"Describe climate change","Climate change refers to long-term shifts...","Climate change is the long-term alteration in Earth's..."
-"解释量子计算的原理","量子计算利用量子比特或称量子位作为基本计算单元...","量子计算是一种利用量子力学原理进行信息处理的技术..."
-"描述全球气候变化","全球气候变化是指地球气候系统的长期变化...","全球气候变化是指地球气候系统的统计特性随时间变化..."
-"Объяснение принципов квантовых вычислений","Квантовые вычисления используют квантовые биты, или кубиты, в качестве основных вычислительных единиц...","Квантовые вычисления - это технология, использующая принципы квантовой механики для обработки информации..."
-"Описание глобального изменения климата","Глобальное изменение климата относится к долгосрочным изменениям климатической системы Земли...","Глобальное изменение климата относится к изменению статистических характеристик климатической системы Земли во времени..."
+prompt,text,label
+"Explain quantum computing","Quantum computing uses quantum bits or qubits...",0
+"Describe climate change","Climate change refers to long-term shifts...",1
+"解释量子计算的原理","量子计算利用量子比特或称量子位作为基本计算单元...",1
+"描述全球气候变化","全球气候变化是指地球气候系统的长期变化...",0
+"Объяснение принципов квантовых вычислений","Квантовые вычисления используют квантовые биты, или кубиты, в качестве основных вычислительных единиц...",1
+"Описание глобального изменения климата","Глобальное изменение климата относится к долгосрочным изменениям климатической системы Земли...",0
 ...
 ```
+'0' stands for 'machine_text', '1' stands for 'human_text'.
 
-4. Run model inference
+
+4. Run model prediction
 ```
-python inference.py \
+python prediction.py \
     --your-team-name $YOUR_TEAM_NAME \
     --data-path $YOUR_DATASET_PATH/test1 \
     --model-type $MODEL \
@@ -52,23 +54,42 @@ We evaluate a model according to AUC. Please refer to the corresponding file.
 ```
 python evaluate.py \
     --submit-path ${YOUR_SAVE_PATH}/${YOUR_TEAM_NAME} \
+    --gt-name $PATH_TO_GROUND_TRUTH_WITHOUT_EXTENSION
 ```
 
 ## 📊 File Format Specifications
-
 ### Input Dataset Format
-CSV file with columns: `prompt`, `human_text`, `machine_text`
+CSV file with columns: `prompt`, `text`, `label`（optional）:
+```csv
+prompt,text
+"Explain quantum computing","Quantum computing uses quantum bits or qubits..."
+"Describe climate change","Climate change refers to long-term shifts..."
+"解释量子计算的原理","量子计算利用量子比特或称量子位作为基本计算单元..."
+"描述全球气候变化","全球气候变化是指地球气候系统的长期变化..."
+"Объяснение принципов квантовых вычислений","Квантовые вычисления используют квантовые биты, или кубиты, в качестве основных вычислительных единиц..."
+"Описание глобального изменения климата","Глобальное изменение климата относится к долгосрочным изменениям климатической системы Земли..."
+...
+```
 
 ### Output Format
 Excel file (`<your-team-name>.xlsx`) with two sheets:
-- `predictions` sheet containing:
+- `predictions` sheet containing :
   - `prompt`: Original prompt text
-  - `human_text_prediction`: Probability of human authorship (higher = more likely human)
-  - `machine_text_prediction`: Probability of human authorship (higher = more likely human)
+  - `text_prediction`: Probability of human authorship (higher = more likely human)
+```csv
+prompt,text_prediction
+"Explain quantum computing",0.95
+"Describe climate change",0.68
+...
+```
+
 - `time` sheet containing:
   - `Data Volume`: Number of processed examples
   - `Time`: Total processing time in seconds
-
+```csv
+Data Volume,Time
+"6000",53.21
+```
 
 ## 📈 Evaluation Metrics
 Models are evaluated based on:
