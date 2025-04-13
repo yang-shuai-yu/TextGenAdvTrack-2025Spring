@@ -35,9 +35,6 @@ Develop strategies to modify AI-generated text(column 'machine_text') to evade d
 - Paraphrasing
 - Synonym Replacement
 - Misspelling
-- Article Deletion
-- Space Infiltration Strategy
-- Homoglyph Attack
 - Other techniques of your choice
 - ...
 
