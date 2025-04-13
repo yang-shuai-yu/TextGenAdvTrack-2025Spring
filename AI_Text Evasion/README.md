@@ -10,8 +10,8 @@ Please acquire the download link of UCAS_AISAD_TEXT-val dataset from our Wechat.
 
 - **Training Dataset**: You may use any dataset for training  **EXCEPT M4 AND HC3**. Using M4 and HC3 for training is strictly **PROHIBITED**. \
    You should declare any additional data sources in your final report.
- - **Validation Set**: UCAS_AISAD_TEXT-val. 6,000 samples selected from M4 and HC3 datasets *with labels provided*.
- - **Test Set 1**: UCAS_AISAD_TEXT-test_1. 6,000 prompt, machine-generated and human-written texts *without labels provided*.
+ - **Validation Set**: UCAS_AISAD_TEXT-val. 12,000 samples selected from M4 and HC3 datasets *with labels provided*.
+ - **Test Set 1**: UCAS_AISAD_TEXT-test_1. 12,000 prompt, machine-generated and human-written texts *without labels provided*.
  - **Test Set 2**: UCAS_AISAD_TEXT-test_2. Additional samples collected from the evasion track of this assessment and will be released at the last week of the practice.
 
 'UCAS_AISAD_TEXT-val','UCAS_AISAD_TEXT-test_1' and 'UCAS_AISAD_TEXT-test_2' : \
