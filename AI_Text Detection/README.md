@@ -45,6 +45,8 @@ python evaluate.py \
     --submit-path ${YOUR_SAVE_PATH}/${YOUR_TEAM_NAME} \
     --gt-name $PATH_TO_GROUND_TRUTH_WITHOUT_EXTENSION
 ```
+6. Submit your results
+Generate the evaluation results and submit a file named `<your-team-name>.xlsx` to the TA.
 
 ## 📊 File Format Specifications
 ### Input Dataset Format
