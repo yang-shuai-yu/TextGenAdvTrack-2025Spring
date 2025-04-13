@@ -31,9 +31,9 @@ Teaching Assistant (TA): Xiaochuan Jin, M.S., Institute of Automation CAS, jinxi
 ## AI_Generated_Text Detection
 
 ### Week 8
-|Team | AUC | Avg_Time(s) |
-|:-----:|:----:|:----:|
-|Baseline| - | - |
+|Team | AUC | ACC | F1 | Avg_Time(s) | Final_Score |
+|:-----:|:----:|:----:|:----:|:----:|:----:|
+|Baseline| - | - | - | - | - | - |
 
 
 ## AI_Text Evasion
