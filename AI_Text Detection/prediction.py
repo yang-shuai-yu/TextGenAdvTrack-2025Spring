@@ -23,7 +23,7 @@ def get_opts():
     arg.add_argument(
         "--model-type",
         type=str,
-        choices=["argugpt", "your model"]
+        choices=[ "your model"]
         help="Type of model to use",
         default="your model"
     )
@@ -49,9 +49,6 @@ def get_dataset(opts):
 def get_model(opts):
     print(f"Loading {opts.model_type} detector model...")
     
-    # if opts.model_type == "argugpt":
-    #     model = pipeline("text-classification", model="SJTU-CL/RoBERTa-large-ArguGPT-sent", 
-    #                      max_length=512, truncation=True)
     '''
     You should load your model here!
     '''
