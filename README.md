@@ -3,7 +3,7 @@ Hi, every one!
 
 This is the official repository for TextGenAdvTrack, practice session of the course **Artificial Intelligence Security, Attacks and Defenses** which is offered to graduate students of UCAS in the spring of 2025.
 
-## course infomation
+## Course infomation
 
 Name: AI Security and Adversarial Defense (180206081104P3005H)
 
@@ -30,28 +30,16 @@ Teaching Assistant (TA): Xiaochuan Jin, M.S., Institute of Automation CAS, jinxi
 # 🥇 LeaderBoard
 ## AI_Generated_Text Detection
 
-### Week 8
-|Team | AUC | ACC | F1 | Avg_Time(s) | Final_Score |
-|:-----:|:----:|:----:|:----:|:----:|:----:|
-|Baseline| 0.9334  | 0.8423  | 0.8879  | 0.0321  | 0.9015  |
-
-### Week 9
-|Team | AUC | ACC | F1 | Avg_Time(s) | Final_Score |
-|:-----:|:----:|:----:|:----:|:----:|:----:|
-|Baseline| 0.9334  | 0.8423  | 0.8879  | 0.0325  | 0.9015  |
-|SAFETEAM| 0.9153  | 0.8212  | 0.8405  | 0.0218  | 0.8796  |
+|Team | Week | AUC | ACC | F1 | Avg_Time(s) | Final_Score |
+|:-----:|:----:|:----:|:----:|:----:|:----:|:----:|
+|Baseline|   -  | 0.9334 | 0.8423 | 0.8879 | 0.0325 | 0.9015 |
+|SAFETEAM| Week9 | 0.9153 | 0.8212 | 0.8405 | 0.0218 | 0.8796 |
 
 ## AI_Text Evasion
 
-### Week 8
-|Team | 1-AUC | Avg_Time (s) | 
-|:-----:|:----:|:------:|
-|Baseline| 0.666  | 0.0325  |
-
-### Week 9
-|Team | 1-AUC | Avg_Time (s) | 
-|:-----:|:----:|:------:|
-|Baseline| 0.666  | 0.0325  |
+|Team | Week | 1-AUC | Avg_Time (s) | 
+|:-----:|:----:|:----:|:------:|
+|Baseline| - | 0.0666  | 0.0325  |
 
 
 
