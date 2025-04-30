@@ -15,12 +15,6 @@ def adjust_prediction_score(pred_label, pred_score, model_type):
     Returns:
         float: Adjusted score where higher values indicate more likely human-written text
     """
-    if model_type == "argugpt":
-        # ArguGPT: LABEL_1=machine(0), LABEL_0=human(1)
-        if pred_label == "LABEL_0":  # Predicted as human
-            return pred_score
-        else:  # LABEL_1, predicted as machine
-            return 1 - pred_score
         
     # if model_type == "your model":
     #     # your model: xxx=machine(0), yyy=human(1)
