@@ -36,11 +36,13 @@ Teaching Assistant (TA): Xiaochuan Jin, M.S., Institute of Automation CAS, jinxi
 |Baseline|   -  | 0.9334 | 0.8423 | 0.8879 | 0.0325 | 0.9015 |
 |SAFETEAM| Week9 | 0.9153 | 0.8212 | 0.8405 | 0.0218 | 0.8796 |
 |AscianYu| Week10 | 0.7151 | 0.7078 | 0.7596 | 0.1319 | 0.7173 |
+|AI_Safety_Team| Week10 | 0.7392 | 0.5010 | 0.6670 | 0.0073 | 0.6605 |
 
 ## AI_Text Evasion
 
 |Team | Week | 1-AUC | Avg_Time (s) | 
 |:-----:|:----:|:----:|:------:|
+|AI_Safety_Team| Week10 | 0.3395  | 0.0195  |
 |Baseline| - | 0.0666  | 0.0325  |
 
 
