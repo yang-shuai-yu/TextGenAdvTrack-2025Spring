@@ -18,12 +18,13 @@ def adjust_prediction_score(pred_label, pred_score, model_type):
         
     # if model_type == "your model":
     #     # your model: xxx=machine(0), yyy=human(1)
-    #     if pred_label == "xxx":  # Predicted as human
+    #     if pred_label == "human":  # Predicted as human
     #         return pred_score
     #     else:  # yyy, predicted as machine
     #         return 1 - pred_score
         
-    else:
-        # Default handling, return original score
+    # else:
+    #     # Default handling, return original score
         
-        return pred_score
+    #     return pred_score
+    return pred_score
