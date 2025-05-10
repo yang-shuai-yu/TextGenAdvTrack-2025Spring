@@ -101,13 +101,13 @@ if __name__ == "__main__":
     arg.add_argument(
         "--submit-path",
         type=str,
-        default="/mnt/data/jinxiaochuan/Project/UCAS/LLMDA/results",
+        default="./results",
         help="Path to directory containing submission files"
     )
     arg.add_argument(
         "--gt-name",
         type=str,
-        default="/mnt/data/jinxiaochuan/Project/UCAS/LLMDA/data/test-gt",
+        default="/root/autodl-tmp/deeplearning/TextGenAdvTrack-2025Spring/AI_Text Detection/data/UCAS_AISAD_TEXT-val",
         help="Name of ground truth file (without extension)"
     )
     opts = arg.parse_args()
