@@ -21,7 +21,7 @@ def get_opts():
         "--data_path",
         type=str,
         help="Path to the CSV dataset",
-        default="./data/UCAS_AISAD_TEXT-val.csv"
+        default="./data/UCAS_AISAD_TEXT-test2.csv"
     )
     arg.add_argument(
         "--hidden_size",
